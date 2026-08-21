@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Certified AI Practitioner - Study Notes & 7 Practice Tests</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Marked.js for Markdown parsing -->
+  <script src="marked.min.js"></script>
+
+  <!-- KaTeX for Math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="window.katexReady = true;"></script>
+
+  <!-- Mermaid.js for Diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.mermaid) {
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+      }
+    });
+  </script>
+
+  <link rel="stylesheet" href="aws-ai-practioner.css?v=2">
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <button class="sidebar-toggle" id="sidebarToggle" title="Toggle Sidebar">☰</button>
+      <div class="brand-title">
+        <span>AWS AI Practitioner</span>
+        <span class="brand-badge">28 Notes & 7 Tests (350 Qs)</span>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search 28 notes & 350 questions...">
+      </div>
+
+      <div class="progress-ring-wrap" id="progressRingWrap" title="Overall question progress">
+        <svg class="progress-ring" viewBox="0 0 36 36" width="34" height="34">
+          <circle class="ring-track" cx="18" cy="18" r="15"></circle>
+          <circle class="ring-fill" id="ringFill" cx="18" cy="18" r="15"></circle>
+        </svg>
+        <span class="ring-pct" id="ringPct">0%</span>
+      </div>
+      <span class="progress-count" id="progressCount">0/350</span>
+      <span class="streak-badge" id="streakBadge" hidden>🔥 <span id="streakNum">0</span></span>
+      <button class="theme-toggle" id="themeToggle">🌙 Dark</button>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <div class="app-container">
+    
+    <!-- SIDEBAR TREE VIEW -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <span>📂 Portal Navigation</span>
+      </div>
+
+      <div class="tree-container" id="treeContainer">
+        <!-- Dynamic Tree Content -->
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content" id="mainContent">
+      <!-- Rendered dynamically -->
+    </main>
+
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast">📋 Đã sao chép prompt cho AI!</div>
+
+  <!-- NOTE-COMPLETE CELEBRATION OVERLAY -->
+  <div class="read-celebration" id="readCelebration">
+    <div class="read-celebration-icon">✓</div>
+    <div class="read-celebration-text">
+      <span class="read-celebration-title" id="celebrationTitle">Note completed!</span>
+      <span class="read-celebration-sub" id="celebrationSub">You've read all sections.</span>
+    </div>
+  </div>
+
+  <!-- CUSTOM CONFIRM DIALOG -->
+  <div class="confirm-modal" id="confirmModal">
+    <div class="confirm-modal-content">
+      <div class="confirm-modal-header">
+        <div class="confirm-modal-icon danger" id="confirmIcon">⚠️</div>
+        <h3 class="confirm-modal-title" id="confirmTitle">Xác nhận</h3>
+      </div>
+      <div class="confirm-modal-body" id="confirmBody">
+        Bạn có chắc chắn muốn reset toàn bộ đáp án của bài thi này không? Hành động này không thể hoàn tác.
+      </div>
+      <div class="confirm-modal-footer">
+        <button class="btn-confirm-cancel" id="confirmCancelBtn">Hủy</button>
+        <button class="btn-confirm-ok danger" id="confirmOkBtn">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMBEDDED DATA & APPLICATION LOGIC -->
+  <script src="notes-data.js"></script>
+  <script src="tests-data.js"></script>
+  <script src="app.js?v=2"></script>
+
+</body>
+</html>
